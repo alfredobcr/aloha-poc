@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/dropunit",
+  "src/logunit",
+  "src/reducerunit",
+  "src/starunit",
+]
+
+[project]
+name = "luna"
+description = "Lab over Unix-sockets Network Application"
+version = "0.1.0"
+requires-python = ">= 3.11"
+authors = [
+  {name = "Alfredo Becerra", email = "soles-bingo.80@icloud.com"},
+]
+readme = "README.md"
+license = "MIT"
+keywords = ["poc", "aloha", "luna", "data",  "lab"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+Homepage = "https://github.com/alfredobcr/aloha-poc"
+
+[tool.pytest.ini_options]
+testpaths = [
+  "src/*",
+]
+
+[tool.hatch.envs.hatch-test]
+default-args = ["src"]
+extra-args = ["-vv"]
+extra-dependencies = [
+  "pytest-asyncio",
+]
